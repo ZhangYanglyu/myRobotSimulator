@@ -1,0 +1,154 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.5557871666704669 0.7920105208027215 0.2526261275130035 5.217547214103215
+  position -0.9448633091859069 0.6781518093933449 0.639785115359063
+  follow "robot"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+}
+Robot {
+  translation -0.3 0.0299 0
+  children [
+    DEF Body Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.1 0.02 0.2
+      }
+    }
+    DEF WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.06 0 -0.07
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+        PositionSensor {
+          name "position sensor1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 -0.07
+        rotation 0 0 1 1.57
+        children [
+          DEF Wheel Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.03
+            }
+          }
+        ]
+        boundingObject USE Wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.06 0 -0.07
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+        PositionSensor {
+          name "position sensor2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 -0.07
+        rotation 0 0 1 1.57
+        children [
+          DEF Wheel Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.03
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE Wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.06 0 0.07
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+        PositionSensor {
+          name "position sensor3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 0.07
+        rotation 0 0 1 1.57
+        children [
+          DEF Wheel Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.03
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE Wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.06 0 0.07
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+        PositionSensor {
+          name "position sensor4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 0.07
+        rotation 0 0 1 1.57
+        children [
+          DEF Wheel Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.03
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE Wheel
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+  }
+  controller "my_controller"
+}
